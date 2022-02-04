@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"math/rand"
+	"net/http"
 	"os"
 	"strconv"
 	"time"
@@ -21,7 +22,7 @@ func init() {
 	token := os.Environ()
 	fmt.Println(token)
 	// принимаем на входе флаг -telegrambottoken
-	flag.StringVar(&telegramBotToken, "telegrambottoken", "", "Telegram Bot Token")
+	flag.StringVar(&telegramBotToken, "telegrambottoken", "5294570525:AAH9O2FVAymXQSw3ZfpLrffVm4N_UL9rK2Q", "Telegram Bot Token")
 	flag.Parse()
 
 	// без него не запускаемся
@@ -29,6 +30,7 @@ func init() {
 		log.Print("-telegrambottoken is required")
 		os.Exit(1)
 	}
+	http.ListenAndServe("0.0.0.0:80", nil)
 }
 
 func main() {

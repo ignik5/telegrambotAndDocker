@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  hello-world:
+    container_name:  telega
+    build:
+        context: .
+        dockerfile: Dockerfile
+    tty: true
+    ports:
+      - 4680:80
